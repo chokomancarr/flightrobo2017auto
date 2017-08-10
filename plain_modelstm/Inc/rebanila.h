@@ -7,9 +7,11 @@
 class Rebanila : public _PROPO
 {
 public:
-	Rebanila();
+	Rebanila(Serial*);
 	~Rebanila(){}
 	
+	float targetElevator, targetRudder, targetThrottle;
+
 	static void out_interrupt();
 };
 #endif

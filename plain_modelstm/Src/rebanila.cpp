@@ -1,12 +1,11 @@
 #include "rebanila.h"
 
 
-static TIM_HandleTypeDef TimMasterHandle;
 DigitalOut servo11(PB_10);
 DigitalOut servo22(PB_5);
 DigitalOut servo44(PC_12);
 
-Rebanila::Rebanila()
+Rebanila::Rebanila(Serial* serial) : _PROPO(serial)
 {
 	__TIM4_CLK_ENABLE();
 
@@ -30,6 +29,13 @@ Rebanila::Rebanila()
 
 void Rebanila::out_interrupt()
 {
+	//どこに置くか知らないからとりあえずここ
+
+	//SwBとSwCの入力を取る（方法が分からん）
+	bool i = is_auto;
+	is_auto = switch_b;
+	if (is_auto != i) autoMode = 0;
+
 	servo11=servo_rudder;
 	servo22=servo_elevater;
 	servo44=servo_throttle;

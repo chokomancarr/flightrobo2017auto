@@ -1,26 +1,31 @@
 
 #include "propo.h"
 
-
 #define TIM_MST      TIM2
 #define TIM_MST_IRQ  TIM2_IRQn
 #define TIM_MST_RCC  __TIM2_CLK_ENABLE()
+
+//自動モード切り替え用
+#define STICK_CENTER_PULSEWIDTH 700//左ステックが中心にある時の周期（測って変えること）
+#define STICK_CENTER_TOLERANCE 100//周期を無視する誤差幅
 
 TIM_HandleTypeDef _PROPO::TimMasterHandle;
 bool _PROPO::us_ticker_inited;
 unsigned int _PROPO::AILE,_PROPO::ELEV,_PROPO::THRO,_PROPO::RUDD;
 bool _PROPO::is_auto;
 unsigned int _PROPO::autoMode, _PROPO::start;
+bool _PROPO::switch_b, _PROPO::switch_c, _PROPO::switch_f;
 unsigned int _PROPO::servo_elevater,_PROPO::servo_rudder,_PROPO::servo_throttle;
+Serial* _PROPO::pc;
 
-_PROPO::_PROPO()
+_PROPO::_PROPO(Serial* serial)
 {
 	if (us_ticker_inited) return;
     us_ticker_inited = true;
+    pc = serial;
 
     // Enable timer clock
     TIM_MST_RCC;
-
     // Configure time base
     TimMasterHandle.Instance = TIM_MST;
     TimMasterHandle.Init.Period            = 0xFFFFFFFF;
@@ -47,7 +52,17 @@ void _PROPO::propo2_interrupt(){ //elevator (up down)
 		else ELEV=0xFFFFFFFFUL-start+buf;
 		start=buf;
 	}
-	servo_elevater=(ELEV>500)? 1 : 0;
+	if (!is_auto) servo_elevater=(ELEV>500)? 1 : 0;
+	else if (autoMode == 0 && ELEV < 500) {
+		if (ELEV - STICK_CENTER_PULSEWIDTH > STICK_CENTER_TOLERANCE) {
+			autoMode = STICK_AUTO_UP;
+			pc->printf("auto mode set to " + (autoMode));
+		}
+		else if (STICK_CENTER_PULSEWIDTH - ELEV > STICK_CENTER_TOLERANCE) {
+			autoMode = STICK_AUTO_DOWN;
+			pc->printf("auto mode set to " + (autoMode));
+		}
+	}
 }
 
 void _PROPO::propo3_interrupt(){ //throttle (motor)
@@ -72,10 +87,20 @@ void _PROPO::propo4_interrupt(){ //rudder (left right)
 		else RUDD=0xFFFFFFFFUL-start+buf;
 		start=buf;
 	}
-	servo_rudder=(RUDD>500)? 1 : 0;
+	if (!is_auto) servo_rudder=(RUDD>500)? 1 : 0;
+	else if (autoMode == 0 && ELEV < 500) {
+		if (ELEV - STICK_CENTER_PULSEWIDTH > STICK_CENTER_TOLERANCE) {
+			autoMode = STICK_AUTO_RIGHT;
+			pc->printf("auto mode set to " + (autoMode));
+		}
+		else if (STICK_CENTER_PULSEWIDTH - ELEV > STICK_CENTER_TOLERANCE) {
+			autoMode = STICK_AUTO_LEFT;
+			pc->printf("auto mode set to " + (autoMode));
+		}
+	}
 }
 
-void _PROPO::propo7_interrupt(){
+void _PROPO::propo7_interrupt(){ //drop
 	
 }
 

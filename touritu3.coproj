@@ -109,9 +109,9 @@
     <File name="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal.h" path="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal.h" type="1"/>
     <File name="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_ll_fsmc.h" path="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_ll_fsmc.h" type="1"/>
     <File name="plain_modelstm/Inc/stm32f4xx_it.h" path="plain_modelstm/Inc/stm32f4xx_it.h" type="1"/>
-    <File name="plain_modelstm/drivers/DirHandle.h" path="plain_modelstm/drivers/DirHandle.h" type="1"/>
     <File name="plain_modelstm/drivers/BusInOut.cpp" path="plain_modelstm/drivers/BusInOut.cpp" type="1"/>
     <File name="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_dma2d.h" path="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_dma2d.h" type="1"/>
+    <File name="plain_modelstm/drivers/DirHandle.h" path="plain_modelstm/drivers/DirHandle.h" type="1"/>
     <File name="plain_modelstm/hal/mbed_ticker_api.c" path="plain_modelstm/hal/mbed_ticker_api.c" type="1"/>
     <File name="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/TARGET_NUCLEO_F446RE/device" path="" type="2"/>
     <File name="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_nand.c" path="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_nand.c" type="1"/>
@@ -129,9 +129,9 @@
     <File name="plain_modelstm/drivers/LowPowerTimer.h" path="plain_modelstm/drivers/LowPowerTimer.h" type="1"/>
     <File name="plain_modelstm/platform/critical.h" path="plain_modelstm/platform/critical.h" type="1"/>
     <File name="plain_modelstm/Inc/mbed.h" path="plain_modelstm/Inc/mbed.h" type="1"/>
-    <File name="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_i2s_ex.h" path="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_i2s_ex.h" type="1"/>
     <File name="plain_modelstm/Inc/vector.h" path="plain_modelstm/Inc/vector.h" type="1"/>
     <File name="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_fmpi2c.h" path="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_fmpi2c.h" type="1"/>
+    <File name="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_i2s_ex.h" path="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_i2s_ex.h" type="1"/>
     <File name="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_dma_ex.c" path="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_dma_ex.c" type="1"/>
     <File name="plain_modelstm/drivers/I2CSlave.h" path="plain_modelstm/drivers/I2CSlave.h" type="1"/>
     <File name="plain_modelstm/hal/pinmap.h" path="plain_modelstm/hal/pinmap.h" type="1"/>
@@ -146,9 +146,9 @@
     <File name="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_fmpi2c.c" path="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_fmpi2c.c" type="1"/>
     <File name="plain_modelstm/targets/TARGET_STM" path="" type="2"/>
     <File name="plain_modelstm/hal/mbed_lp_ticker_api.c" path="plain_modelstm/hal/mbed_lp_ticker_api.c" type="1"/>
-    <File name="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_ll_fmc.c" path="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_ll_fmc.c" type="1"/>
     <File name="plain_modelstm/platform/PlatformMutex.h" path="plain_modelstm/platform/PlatformMutex.h" type="1"/>
     <File name="plain_modelstm/platform/wait_api.h" path="plain_modelstm/platform/wait_api.h" type="1"/>
+    <File name="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_ll_fmc.c" path="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_ll_fmc.c" type="1"/>
     <File name="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_dcmi.c" path="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_dcmi.c" type="1"/>
     <File name="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_spdifrx.h" path="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_spdifrx.h" type="1"/>
     <File name="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_flash_ex.h" path="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_flash_ex.h" type="1"/>
@@ -278,9 +278,9 @@
     <File name="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/TARGET_NUCLEO_F446RE/device/stm32f4xx.h" path="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/TARGET_NUCLEO_F446RE/device/stm32f4xx.h" type="1"/>
     <File name="plain_modelstm/targets/TARGET_STM/i2c_api.c" path="plain_modelstm/targets/TARGET_STM/i2c_api.c" type="1"/>
     <File name="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_gpio_ex.h" path="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_gpio_ex.h" type="1"/>
-    <File name="plain_modelstm/drivers/PortIn.h" path="plain_modelstm/drivers/PortIn.h" type="1"/>
     <File name="plain_modelstm/cmsis/core_cm0plus.h" path="plain_modelstm/cmsis/core_cm0plus.h" type="1"/>
     <File name="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/TARGET_NUCLEO_F446RE/device/system_stm32f4xx.c" path="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/TARGET_NUCLEO_F446RE/device/system_stm32f4xx.c" type="1"/>
+    <File name="plain_modelstm/drivers/PortIn.h" path="plain_modelstm/drivers/PortIn.h" type="1"/>
     <File name="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_flash.h" path="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_flash.h" type="1"/>
     <File name="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_rcc_ex.c" path="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_rcc_ex.c" type="1"/>
     <File name="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/port_api.c" path="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/port_api.c" type="1"/>
@@ -298,10 +298,10 @@
     <File name="plain_modelstm/platform/mbed_wait_api_no_rtos.c" path="plain_modelstm/platform/mbed_wait_api_no_rtos.c" type="1"/>
     <File name="plain_modelstm/platform/platform.h" path="plain_modelstm/platform/platform.h" type="1"/>
     <File name="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_dcmi_ex.h" path="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_dcmi_ex.h" type="1"/>
-    <File name="plain_modelstm/drivers/DigitalIn.h" path="plain_modelstm/drivers/DigitalIn.h" type="1"/>
-    <File name="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_nor.h" path="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_nor.h" type="1"/>
     <File name="plain_modelstm/Src/stm32f4xx_it.c" path="plain_modelstm/Src/stm32f4xx_it.c" type="1"/>
+    <File name="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_nor.h" path="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_nor.h" type="1"/>
     <File name="plain_modelstm/cmsis/core_cm3.h" path="plain_modelstm/cmsis/core_cm3.h" type="1"/>
+    <File name="plain_modelstm/drivers/DigitalIn.h" path="plain_modelstm/drivers/DigitalIn.h" type="1"/>
     <File name="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_cortex.h" path="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_cortex.h" type="1"/>
     <File name="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/TARGET_NUCLEO_F446RE/PeripheralPins.c" path="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/TARGET_NUCLEO_F446RE/PeripheralPins.c" type="1"/>
     <File name="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4" path="" type="2"/>
@@ -323,11 +323,11 @@
     <File name="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_cortex.c" path="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_cortex.c" type="1"/>
     <File name="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/gpio_api.c" path="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/gpio_api.c" type="1"/>
     <File name="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_hash.h" path="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_hash.h" type="1"/>
-    <File name="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_crc.h" path="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_crc.h" type="1"/>
-    <File name="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_rng.c" path="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_rng.c" type="1"/>
-    <File name="plain_modelstm/platform/Transaction.h" path="plain_modelstm/platform/Transaction.h" type="1"/>
     <File name="plain_modelstm/hal/emac_api.h" path="plain_modelstm/hal/emac_api.h" type="1"/>
+    <File name="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_crc.h" path="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_crc.h" type="1"/>
     <File name="plain_modelstm/hal/can_helper.h" path="plain_modelstm/hal/can_helper.h" type="1"/>
+    <File name="plain_modelstm/platform/Transaction.h" path="plain_modelstm/platform/Transaction.h" type="1"/>
+    <File name="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_rng.c" path="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_rng.c" type="1"/>
     <File name="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_irda.h" path="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_irda.h" type="1"/>
     <File name="plain_modelstm/drivers/PwmOut.h" path="plain_modelstm/drivers/PwmOut.h" type="1"/>
     <File name="plain_modelstm/cmsis/core_cmFunc.h" path="plain_modelstm/cmsis/core_cmFunc.h" type="1"/>
@@ -336,13 +336,13 @@
     <File name="plain_modelstm/drivers" path="" type="2"/>
     <File name="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/pwmout_api.c" path="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/pwmout_api.c" type="1"/>
     <File name="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_hcd.c" path="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_hcd.c" type="1"/>
-    <File name="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_dsi.c" path="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_dsi.c" type="1"/>
     <File name="plain_modelstm/platform/mbed_assert.c" path="plain_modelstm/platform/mbed_assert.c" type="1"/>
     <File name="plain_modelstm/drivers/FileBase.h" path="plain_modelstm/drivers/FileBase.h" type="1"/>
-    <File name="plain_modelstm/drivers/AnalogOut.h" path="plain_modelstm/drivers/AnalogOut.h" type="1"/>
-    <File name="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/lp_ticker.c" path="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/lp_ticker.c" type="1"/>
+    <File name="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_dsi.c" path="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_dsi.c" type="1"/>
     <File name="plain_modelstm/cmsis/core_caInstr.h" path="plain_modelstm/cmsis/core_caInstr.h" type="1"/>
+    <File name="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/lp_ticker.c" path="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/lp_ticker.c" type="1"/>
     <File name="plain_modelstm/platform/mbed_lib.json" path="plain_modelstm/platform/mbed_lib.json" type="1"/>
+    <File name="plain_modelstm/drivers/AnalogOut.h" path="plain_modelstm/drivers/AnalogOut.h" type="1"/>
     <File name="plain_modelstm/drivers/SerialBase.cpp" path="plain_modelstm/drivers/SerialBase.cpp" type="1"/>
     <File name="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_dac_ex.c" path="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_dac_ex.c" type="1"/>
     <File name="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_pwr.c" path="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_pwr.c" type="1"/>
@@ -416,9 +416,9 @@
     <File name="plain_modelstm/Src/eeprom.cpp" path="plain_modelstm/Src/eeprom.cpp" type="1"/>
     <File name="plain_modelstm/drivers/LowPowerTimeout.h" path="plain_modelstm/drivers/LowPowerTimeout.h" type="1"/>
     <File name="plain_modelstm/Src/propo.cpp" path="plain_modelstm/Src/propo.cpp" type="1"/>
-    <File name="plain_modelstm/cmsis/arm_const_structs.h" path="plain_modelstm/cmsis/arm_const_structs.h" type="1"/>
     <File name="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal.c" path="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal.c" type="1"/>
     <File name="plain_modelstm/platform/SingletonPtr.h" path="plain_modelstm/platform/SingletonPtr.h" type="1"/>
+    <File name="plain_modelstm/cmsis/arm_const_structs.h" path="plain_modelstm/cmsis/arm_const_structs.h" type="1"/>
     <File name="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_sd.h" path="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_sd.h" type="1"/>
     <File name="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_dfsdm.h" path="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_dfsdm.h" type="1"/>
     <File name="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_rcc.c" path="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_rcc.c" type="1"/>
@@ -443,9 +443,9 @@
     <File name="plain_modelstm/Src/stm32f4xx_hal_msp.c" path="plain_modelstm/Src/stm32f4xx_hal_msp.c" type="1"/>
     <File name="plain_modelstm/drivers/I2CSlave.cpp" path="plain_modelstm/drivers/I2CSlave.cpp" type="1"/>
     <File name="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_spi.h" path="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_spi.h" type="1"/>
-    <File name="plain_modelstm/platform/CThunk.h" path="plain_modelstm/platform/CThunk.h" type="1"/>
     <File name="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_i2s.c" path="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_i2s.c" type="1"/>
     <File name="plain_modelstm/drivers/BusIn.cpp" path="plain_modelstm/drivers/BusIn.cpp" type="1"/>
+    <File name="plain_modelstm/platform/CThunk.h" path="plain_modelstm/platform/CThunk.h" type="1"/>
     <File name="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_sd.c" path="plain_modelstm/targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_sd.c" type="1"/>
   </Files>
   <Bookmarks/>
