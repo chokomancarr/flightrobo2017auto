@@ -21,14 +21,15 @@ DigitalOut servo4(PC_12);//
 DigitalOut servo5(PA_5);//
 DigitalIn autoSw(PA_1);
 DigitalOut EX1(PA_10);// DigitalOut EX2(PB_4);//
-Serial twe(PB_8, PB_9);//SCL,SDA
+Serial twe(PB_8, PB_9);//SCL,SDA パソコンとの通信
 M24C64 eeprom;//eeprom
-I2C i2c(D14,D15);
-char datawrite[2];
-char data[1];
-char data3h[3];
-int32_t datah;
-float datahpa;
+I2C i2c(D14,D15);//気圧センサの読み取り用。気圧を用いて高度を計る　
+char datawrite[2];//気圧センサ送信データ格納
+char data[1];//気圧センサデータ受信用
+char data3h[3];//気圧センサデータ格納用。気圧センサのデータは24bitで
+//３つにわけておくられてくる。
+int32_t datah;// 気圧センサのデータ結合
+float datahpa;　//気圧(hpa)
 void PinInit();
 void NVIC_Init();
 int main(void)
@@ -42,7 +43,7 @@ int main(void)
 	{
 		twe.printf("");
   		datawrite[0]=0x28;
-	  i2c.write(0b1011100<<1, datawrite, 1, 1); 
+	  i2c.write(0b1011100<<1, datawrite, 1, 1);//気圧データ受信 
 	  i2c.read(0b1011100<<1, data, 1, 0);
 	  data3h[0] =data[0];
 	  datawrite[0]=0x28;
@@ -54,7 +55,7 @@ int main(void)
 	  i2c.read(0b1011100<<1, data, 1, 0);
 	  data3h[2] =data[0];
       datah=data3h[0] | data3h[1]<<8 | data3h[2]<<16;
-      datahpa=datah/4096;
+      datahpa=datah/4096;//気圧算出
 	}
 }
 
