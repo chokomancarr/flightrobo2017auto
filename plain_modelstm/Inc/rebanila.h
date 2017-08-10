@@ -8,6 +8,7 @@ class Rebanila : public _PROPO
 {
 public:
 	Rebanila();
+	~Rebanila(){}
 	
 	static void out_interrupt();
 };
