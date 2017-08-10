@@ -23,7 +23,12 @@ DigitalIn autoSw(PA_1);
 DigitalOut EX1(PA_10);// DigitalOut EX2(PB_4);//
 Serial twe(PB_8, PB_9);//SCL,SDA
 M24C64 eeprom;//eeprom
-
+I2C i2c(D14,D15);
+char datawrite[2];
+char data[1];
+char data3h[3];
+int32_t datah;
+float datahpa;
 void PinInit();
 void NVIC_Init();
 int main(void)
@@ -35,7 +40,21 @@ int main(void)
 	Rebanila rebanila = Rebanila();
 	while (1)
 	{
-		
+		twe.printf("");
+  		datawrite[0]=0x28;
+	  i2c.write(0b1011100<<1, datawrite, 1, 1); 
+	  i2c.read(0b1011100<<1, data, 1, 0);
+	  data3h[0] =data[0];
+	  datawrite[0]=0x28;
+	  i2c.write(0b1011100<<1, datawrite, 1, 1); 
+	  i2c.read(0b1011100<<1, data, 1, 0);
+	  data3h[1] =data[0];
+	  datawrite[0]=0x28;
+	  i2c.write(0b1011100<<1, datawrite, 1, 1); 
+	  i2c.read(0b1011100<<1, data, 1, 0);
+	  data3h[2] =data[0];
+      datah=data3h[0] | data3h[1]<<8 | data3h[2]<<16;
+      datahpa=datah/4096;
 	}
 }
 
