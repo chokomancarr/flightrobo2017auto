@@ -1,11 +1,13 @@
 #include "rebanila.h"
 
-
 DigitalOut servo11(PB_10);
 DigitalOut servo22(PB_5);
 DigitalOut servo44(PC_12);
 DigitalIn Sw1(PA_1);
 DigitalIn Sw2(PA_2);
+
+unsigned long Rebanila::counter = 0;
+
 Rebanila::Rebanila(Serial* serial) : _PROPO(serial)
 {
 	__TIM4_CLK_ENABLE();
@@ -28,33 +30,45 @@ Rebanila::Rebanila(Serial* serial) : _PROPO(serial)
 	__HAL_TIM_ENABLE_IT(&TimMasterHandle, TIM_IT_CC1);
 }
 
-void Rebanila::out_interrupt()//こいつ自体は1μ秒ごとに呼び出される。
-{
-unsigned int32_t count;
 unsigned int SWB_start;
+unsigned int SWB_buf;
+unsigned int SWC_start;
 unsigned int SWC_buf;
-unsigned int SWB_start;
-unsigned int SWC_buf;
-insighed bool PA_1_before;
-insighed bool PA_2_before;
+bool Sw1_old;
+bool Sw2_old;
 
-staic int SWB
-	//どこに置くか知らないからとりあえずここ
-　　　　　
+#ifdef _DebugMode
+bool switch_b_old, switch_c_old;
+#endif
+
+void Rebanila::out_interrupt() {//こいつ自体は1μ秒ごとに呼び出される。
 	//SwBとSwCの入力を取る 0.1ms(100μ秒ごとに)ごとに呼び出したい。
-        if(count%100==0)
-        {
-		count++;
-		if(PA_1_before==0&&PA_1==1)SWB_start=count;
-		if(PA_1_before==1&&PA_1==0)SWB_buf=count-SWB_start;//
-		if(PA_2_before==0&&PA_2==1)SWC_start=count;
-		if(PA_2_before==1&&PA_2==0)SWC_buf=count-SWC_start;　　
-		if(SWB_buf>160)switch_b==true;
-                else if(SWB_buf<140)switch_b==false;
-		else if(SWC_buf>160)switch_c==true;
-                if(SWC_buf<140)switch_c==false;
-		PA_1_before=PA_1;
-		PA_2_before=PA_2;
+	counter++;
+	if(counter%100 == 0)
+	{
+		if(!Sw1_old && Sw1) SWB_start=counter;
+		if(Sw1_old && !Sw1) SWB_buf=counter-SWB_start;//
+		if(!Sw2_old && Sw2) SWC_start=counter;
+		if(Sw2_old && !Sw2) SWC_buf=counter-SWC_start;
+
+		if(SWB_buf>160) switch_b=true;
+		else if(SWB_buf<140) switch_b=false;
+		if(SWC_buf>160) switch_c=true;
+		else if(SWC_buf<140) switch_c=false;
+
+#ifdef _DebugMode
+		if (switch_b != switch_b_old) {
+			switch_b_old = switch_b;
+			pc->printf("switch b is now " + (switch_b? "1" : "0"));
+		}
+		if (switch_c != switch_c_old) {
+			switch_c_old = switch_c;
+			pc->printf("switch c is now " + (switch_c? "1" : "0"));
+		}
+#endif
+
+		Sw1_old=Sw1;
+		Sw2_old=Sw2;
 	}
 
 	bool i = is_auto;

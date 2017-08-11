@@ -12,6 +12,7 @@ public:
 	
 	float targetElevator, targetRudder, targetThrottle;
 
+	static unsigned long counter;
 	static void out_interrupt();
 };
 #endif

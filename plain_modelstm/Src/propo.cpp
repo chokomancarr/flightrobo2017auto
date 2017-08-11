@@ -6,14 +6,15 @@
 #define TIM_MST_RCC  __TIM2_CLK_ENABLE()
 
 //自動モード切り替え用
-#define STICK_CENTER_PULSEWIDTH 700//左ステックが中心にある時の周期（測って変えること）
+#define STICK_CENTER_PULSEWIDTH 700//右ステックが中心にある時の周期（測って変えること）
 #define STICK_CENTER_TOLERANCE 100//周期を無視する誤差幅
 
 TIM_HandleTypeDef _PROPO::TimMasterHandle;
 bool _PROPO::us_ticker_inited;
 unsigned int _PROPO::AILE,_PROPO::ELEV,_PROPO::THRO,_PROPO::RUDD;
+unsigned int _PROPO::AILE_ST,_PROPO::ELEV_ST,_PROPO::THRO_ST,_PROPO::RUDD_ST;
 bool _PROPO::is_auto;
-unsigned int _PROPO::autoMode, _PROPO::start;
+unsigned int _PROPO::autoMode;
 bool _PROPO::switch_b, _PROPO::switch_c, _PROPO::switch_f;
 unsigned int _PROPO::servo_elevater,_PROPO::servo_rudder,_PROPO::servo_throttle;
 Serial* _PROPO::pc;
@@ -42,62 +43,59 @@ _PROPO::_PROPO(Serial* serial)
     HAL_TIM_OC_Start(&TimMasterHandle, TIM_CHANNEL_1);
 }
 
-void _PROPO::propo2_interrupt(){ //elevator (up down)
+void _PROPO::propo1_interrupt(){ //aileron (setting auto mode)
+	if (!is_auto || autoMode > 0) return;
 	unsigned int buf;
-	if (__HAL_GPIO_EXTI_GET_IT(1<<2) != RESET)
-	{//PROPO2
+	if (__HAL_GPIO_EXTI_GET_IT(1<<2) != RESET) {//PROPO1
 		__HAL_GPIO_EXTI_CLEAR_IT(1<<2);
 		buf=TIM2->CNT;
-		if(buf>start)ELEV=buf-start;
-		else ELEV=0xFFFFFFFFUL-start+buf;
-		start=buf;
+		if(buf>AILE_ST)AILE=buf-AILE_ST;
+		else AILE=0xFFFFFFFFUL-AILE_ST+buf;
+		AILE_ST=buf;
 	}
-	if (!is_auto) servo_elevater=(ELEV>500)? 1 : 0;
-	else if (autoMode == 0 && ELEV < 500) {
-		if (ELEV - STICK_CENTER_PULSEWIDTH > STICK_CENTER_TOLERANCE) {
-			autoMode = STICK_AUTO_UP;
-			pc->printf("auto mode set to " + (autoMode));
-		}
-		else if (STICK_CENTER_PULSEWIDTH - ELEV > STICK_CENTER_TOLERANCE) {
-			autoMode = STICK_AUTO_DOWN;
-			pc->printf("auto mode set to " + (autoMode));
-		}
+	if (AILE - STICK_CENTER_PULSEWIDTH > STICK_CENTER_TOLERANCE) autoMode = switch_c? 3 : 1;
+	else if (STICK_CENTER_PULSEWIDTH - AILE > STICK_CENTER_TOLERANCE) autoMode = switch_c? 4 : 2;
+#ifdef _DebugMode
+	pc->printf("auto mode set to " + autoMode);
+#endif
+}
+
+void _PROPO::propo2_interrupt(){ //elevator (up down)
+	if (is_auto) return;
+	unsigned int buf;
+	if (__HAL_GPIO_EXTI_GET_IT(1<<2) != RESET) {//PROPO2
+		__HAL_GPIO_EXTI_CLEAR_IT(1<<2);
+		buf=TIM2->CNT;
+		if(buf>ELEV_ST)ELEV=buf-ELEV_ST;
+		else ELEV=0xFFFFFFFFUL-ELEV_ST+buf;
+		ELEV_ST=buf;
 	}
+	servo_elevater=(ELEV>500)? 1 : 0;
 }
 
 void _PROPO::propo3_interrupt(){ //throttle (motor)
+	if (is_auto) return;
 	unsigned int buf;
 	if (__HAL_GPIO_EXTI_GET_IT(1<<1) != RESET) {//PROPO3
 		__HAL_GPIO_EXTI_CLEAR_IT(1<<1);
 		buf=TIM2->CNT;
-		if(buf>start)THRO=buf-start;
-		else THRO=0xFFFFFFFFUL-start+buf;
-		start=buf;
+		if(buf>THRO_ST)THRO=buf-THRO_ST;
+		else THRO=0xFFFFFFFFUL-THRO_ST+buf;
+		THRO_ST=buf;
 	}
 	servo_throttle=(THRO>500)? 1 : 0;
 }
 void _PROPO::propo4_interrupt(){ //rudder (left right)
+	if (is_auto) return;
 	unsigned int buf;
 	if (__HAL_GPIO_EXTI_GET_IT(1<<0) != RESET) {//PROPO4
 		__HAL_GPIO_EXTI_CLEAR_IT(1<<0);
 		buf=TIM2->CNT;
-//		if(buf>start)AILE=buf-start;
-//		else AILE=0xFFFFFFFFUL-start+buf;
-		if(buf>start)RUDD=buf-start;
-		else RUDD=0xFFFFFFFFUL-start+buf;
-		start=buf;
+		if(buf>RUDD_ST)RUDD=buf-RUDD_ST;
+		else RUDD=0xFFFFFFFFUL-RUDD_ST+buf;
+		RUDD_ST=buf;
 	}
-	if (!is_auto) servo_rudder=(RUDD>500)? 1 : 0;
-	else if (autoMode == 0 && ELEV < 500) {
-		if (ELEV - STICK_CENTER_PULSEWIDTH > STICK_CENTER_TOLERANCE) {
-			autoMode = STICK_AUTO_RIGHT;
-			pc->printf("auto mode set to " + (autoMode));
-		}
-		else if (STICK_CENTER_PULSEWIDTH - ELEV > STICK_CENTER_TOLERANCE) {
-			autoMode = STICK_AUTO_LEFT;
-			pc->printf("auto mode set to " + (autoMode));
-		}
-	}
+	servo_rudder=(RUDD>500)? 1 : 0;
 }
 
 void _PROPO::propo7_interrupt(){ //drop
