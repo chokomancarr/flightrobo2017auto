@@ -12,7 +12,7 @@ enum STICK_AUTOMODE {
 
 class _PROPO{
 public:
-	_PROPO(Serial*);
+	_PROPO();
 	static TIM_HandleTypeDef TimMasterHandle;
 	static bool us_ticker_inited;
 	

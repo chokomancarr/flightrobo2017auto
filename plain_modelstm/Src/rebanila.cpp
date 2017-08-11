@@ -8,7 +8,7 @@ DigitalIn Sw2(PA_2);
 
 unsigned long Rebanila::counter = 0;
 
-Rebanila::Rebanila(Serial* serial) : _PROPO(serial)
+Rebanila::Rebanila()
 {
 	__TIM4_CLK_ENABLE();
 
@@ -59,11 +59,11 @@ void Rebanila::out_interrupt() {//‚±‚¢‚ÂŽ©‘Ì‚Í1ƒÊ•b‚²‚Æ‚ÉŒÄ‚Ño‚³‚ê‚éB
 #ifdef _DebugMode
 		if (switch_b != switch_b_old) {
 			switch_b_old = switch_b;
-			pc->printf("switch b is now " + (switch_b? "1" : "0"));
+			pc.printf("switch b is now " + (switch_b? "1" : "0") + "\r\n");
 		}
 		if (switch_c != switch_c_old) {
 			switch_c_old = switch_c;
-			pc->printf("switch c is now " + (switch_c? "1" : "0"));
+			pc.printf("switch c is now " + (switch_c? "1" : "0") + "\r\n");
 		}
 #endif
 

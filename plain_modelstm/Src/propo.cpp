@@ -17,13 +17,11 @@ bool _PROPO::is_auto;
 unsigned int _PROPO::autoMode;
 bool _PROPO::switch_b, _PROPO::switch_c, _PROPO::switch_f;
 unsigned int _PROPO::servo_elevater,_PROPO::servo_rudder,_PROPO::servo_throttle;
-Serial* _PROPO::pc;
 
-_PROPO::_PROPO(Serial* serial)
+_PROPO::_PROPO()
 {
 	if (us_ticker_inited) return;
     us_ticker_inited = true;
-    pc = serial;
 
     // Enable timer clock
     TIM_MST_RCC;
@@ -56,7 +54,7 @@ void _PROPO::propo1_interrupt(){ //aileron (setting auto mode)
 	if (AILE - STICK_CENTER_PULSEWIDTH > STICK_CENTER_TOLERANCE) autoMode = switch_c? 3 : 1;
 	else if (STICK_CENTER_PULSEWIDTH - AILE > STICK_CENTER_TOLERANCE) autoMode = switch_c? 4 : 2;
 #ifdef _DebugMode
-	pc->printf("auto mode set to " + autoMode);
+	pc.printf("auto mode set to " + autoMode + "\r\n");
 #endif
 }
 

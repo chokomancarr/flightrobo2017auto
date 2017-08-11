@@ -7,7 +7,7 @@
 class Rebanila : public _PROPO
 {
 public:
-	Rebanila(Serial*);
+	Rebanila();
 	~Rebanila(){}
 	
 	float targetElevator, targetRudder, targetThrottle;
